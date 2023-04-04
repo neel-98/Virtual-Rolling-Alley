@@ -97,10 +97,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0065299035
-  m_Height: 0.041597772
+  m_Radius: 0.006083446
+  m_Height: 0.04122999
   m_Direction: 2
-  m_Center: {x: 0.00022959895, y: 0.000015063211, z: 0.019807214}
+  m_Center: {x: -0.00003665934, y: 0.000015063212, z: 0.019821336}
 --- !u!54 &2640604609123856489
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,8 +128,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.004513979, y: 0.0013803629, z: 0.0012804965}
-  m_Center: {x: 0.0012365978, y: 0.00017428161, z: 0.00018261575}
+  m_Size: {x: 0.0060162796, y: 0.005905469, z: 0.0017599755}
+  m_Center: {x: -0.0000043287873, y: 0.00018687981, z: -0.000057124147}
 --- !u!114 &568046423659753591
 MonoBehaviour:
   m_ObjectHideFlags: 0

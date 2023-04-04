@@ -8,6 +8,8 @@ TagManager:
   - Environment
   - Spawner
   - Log
+  - Ball
+  - Manager
   layers:
   - Default
   - TransparentFX

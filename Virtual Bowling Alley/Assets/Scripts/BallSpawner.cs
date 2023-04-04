@@ -5,12 +5,13 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     public GameObject[] balls;
-    public float ballSpeed = 2.0f;
+    public float ballSpeed = 1.5f;
 
     float timer = 10.0f;  // time between each spawn
     // private variables
     float timeRemaining;    // to reset timer
 
+    int ballLimit = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -29,20 +30,23 @@ public class BallSpawner : MonoBehaviour
         // it will go in else part if timer is finished
         else
         {
-            // generating random index
-            int selectedIndex = Random.Range(0, balls.Length);
+            if(gameObject.transform.childCount<ballLimit)
+            {
+                // generating random index
+                int selectedIndex = Random.Range(0, balls.Length);
 
-            // Instantiating Block at index selected randomly
-            GameObject ball = Instantiate(balls[selectedIndex], transform);
+                // Instantiating Block at index selected randomly
+                GameObject ball = Instantiate(balls[selectedIndex], transform);
 
-            // throwing ball with the speed of "ballSpeed"
-            ball.GetComponent<Rigidbody>().velocity = -(transform.forward).normalized * ballSpeed;
+                // throwing ball with the speed of "ballSpeed"
+                ball.GetComponent<Rigidbody>().velocity = -(transform.forward).normalized * ballSpeed;
 
-            // putting block under spawner so that all the blocks can be found under spawner
-            ball.transform.parent = gameObject.transform;
+                // putting block under spawner so that all the blocks can be found under spawner
+                ball.transform.parent = gameObject.transform;
 
-            // reseting the timer
-            timeRemaining = timer;
+                // reseting the timer
+                timeRemaining = timer;
+            }
             
         }
     }

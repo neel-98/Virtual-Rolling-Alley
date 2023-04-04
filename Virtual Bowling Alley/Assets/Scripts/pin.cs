@@ -6,7 +6,9 @@ using TMPro;
 public class pin : MonoBehaviour
 {
 	TMP_Text log;
-	public static bool marked = false;
+	bool marked = false;
+	float timeToDestroy = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,24 +18,29 @@ public class pin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	if(!marked)
-    	{
-    		if((gameObject.transform.rotation.x < -0.71) || (gameObject.transform.rotation.x > -0.69))
-	        {
-	        	Debug.Log(gameObject.transform.rotation.x);
-	        	marked = true;
-	        	Destroy(gameObject, 5);
-	        }
-    	}
+    	// if(!marked)
+    	// {
+    	// 	if((gameObject.transform.rotation.x < -0.71) || (gameObject.transform.rotation.x > -0.69))
+	    //     {
+	    //     	Debug.Log(gameObject.transform.rotation.x);
+	    //     	marked = true;
+	    //     	Destroy(gameObject, 5);
+	    //     }
+    	// }
         
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        // if(collision.collider.name == "Lane")
-        // {
-        // 	Debug.Log("YES");
-        // }
+    	if(!marked)
+    	{
+    		if((collision.collider.tag == "Pin") || (collision.collider.tag == "Ball"))
+	        {
+	        	marked = true;
+	        	Destroy(gameObject, timeToDestroy);
+	        }
+    	}
+        
     }
 
 }
